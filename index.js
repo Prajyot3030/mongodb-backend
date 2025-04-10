@@ -3,11 +3,12 @@ const cors=require('cors')
 const bodyParser=require('body-parser')
 const mongoose=require('mongoose')
 const User=require('./models/User.js')
+const productRoutes = require('./Routes/productRoutes.js')
 
 const server=express()
 server.use(cors())
 server.use(bodyParser.json())
-
+server.use('/product',productRoutes)
 // cpntrol Atlas cloud db
 
 mongoose.connect('mongodb+srv://Prajyot:Prajyot%403030@leadsoft.bsekaje.mongodb.net/?retryWrites=true&w=majority&appName=leadsoft').then(()=>{
